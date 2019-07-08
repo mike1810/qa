@@ -4,15 +4,16 @@ import org.testng.asserts.SoftAssert;
 
 
 
-public class testsWithData {
+public class TestsWithData {
 
     @Test
-    @Parameters({"qwe", "ewq"})
+    @Parameters({"firstNumber", "secondNumber"})
     public void testWithData(int param1, int param2){
         Assert.assertEquals(param1, param2);
     }
 
     @DataProvider(name = "name")
+    @Test
     public Object[][] simpleDataProvider(){
             return new Object[][]{
                     {1,1},
@@ -25,4 +26,5 @@ public class testsWithData {
         Assert.assertEquals(a,b,"Provided numbers are not equals");
         Assert.assertNotEquals(a, b+1,"Provided numbers are equals" );
     }
+
 }
