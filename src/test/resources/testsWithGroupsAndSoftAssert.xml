@@ -4,13 +4,6 @@
 
     <test name="Test Groups">
 
-        <groups>
-            <run>
-                <include name="assert"/>
-                <include name="softAssert"/>
-            </run>
-        </groups>
-
         <classes>
             <class name="TestsWithGroupsAndSoftAssert"/>
         </classes>

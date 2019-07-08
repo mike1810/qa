@@ -6,22 +6,22 @@ public class CustomListener implements ITestListener{
 
     int a = 1;
     public void onTestStart(ITestResult var1){
-        System.out.println("Test "+ a +")'" + var1.getName() + "' started");
+        System.out.println("Method "+ a +")'" + var1.getName() + "' started");
         var1.getTestClass();
     }
 
     public void onTestSuccess(ITestResult var1){
-        System.out.println("Test "+ a +")'" + var1.getName() + "' successful");
+        System.out.println("Method "+ a +")'" + var1.getName() + "' successful");
         a++;
     }
 
     public void onTestFailure(ITestResult var1){
-        System.out.println("Test "+ a +")'" + var1.getName() + "' failed");
+        System.out.println("Method "+ a +")'" + var1.getName() + "' failed");
         a++;
     }
 
     public void onTestSkipped(ITestResult var1){
-        System.out.println("Test "+ a +")'" + var1.getName() + "' skipped");
+        System.out.println("Method "+ a +")'" + var1.getName() + "' skipped");
         a++;
     }
 

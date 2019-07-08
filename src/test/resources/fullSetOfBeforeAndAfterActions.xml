@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="test-suite-name">
 
-    <test name="Before and after">
+<suite name="mySuite">
 
+    <test name="Before and after first">
+        <parameter name="firstParameter" value="2"/>
+        <parameter name="secondParameter" value="2"/>
 
         <groups>
             <run>
                 <include name="firstGroup"/>
-                <include name="secondGroup"/>
             </run>
         </groups>
 
         <classes>
-            <class name="fullSetOfBeforeAndAfterActions"/>
+            <class name="FullSetOfBeforeAndAfterActions"/>
         </classes>
+    </test>
 
+    <test name="Before and after second">
+        <parameter name="firstParameter" value="4"/>
+        <parameter name="secondParameter" value="4"/>
 
+        <groups>
+            <run>
+                <exclude name="firstGroup"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="FullSetOfBeforeAndAfterActions"/>
+        </classes>
     </test>
 
 </suite>

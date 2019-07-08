@@ -1,56 +1,80 @@
-
-import listeners.CustomListener;
-import listeners.CustomListenerForSuite;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.SkipException;
 
-@Listeners()
 public class TestsWithDataProviderAndCustomListener {
 
-    @DataProvider(name = "name")
+    @DataProvider(name = "correct")
     @Test
-    public Object[][] simpleDataProvider(){
+    public Object[][] correctDataProvider() {
         return new Object[][]{
-                {1,-1},
-                {2,2},
-                {-2,3}
+                {1, -1},
+                {2, 2},
+                {-3, 3}
         };
     }
 
-    @Test(dataProvider = "name")
-    public void dataProviderPairEquals(int a, int b){
+    @DataProvider(name = "incorrect")
+    @Test
+    public Object[][] incorrectDataProvider() {
+        return new Object[][]{
+                {-1, 2},
+                {2, -1},
+                {0, -2},
+                {-2, 0}
+        };
+    }
+
+    @Test(dataProvider = "correct")
+    public void dataProviderPairEquals(int a, int b) {
         Assert.assertEquals(
-                Math.pow(a,2),
-                Math.pow(b,2),
+                Math.pow(a, 2),
+                Math.pow(b, 2),
                 "Provided numbers are not equals in power 2");
     }
 
-    @Test(dataProvider = "name")
-    public void dataProviderPairNotEquals(int a, int b){
+    @Test(dataProvider = "incorrect")
+    public void dataProviderPairNotEquals(int a, int b) {
         Assert.assertNotEquals(
-                Math.pow(a,2),
-                Math.pow(b,2),
-                "Provided numbers are equals in power 2" );
+                Math.pow(a, 2),
+                Math.pow(b, 2),
+                "Provided numbers are equals in power 2");
     }
 
-    @Test(dataProvider = "name")
-    public void dataProviderPairTrueOrFail(int a, int b){
-        if(!(a < 1 && b > 2)){
-            Assert.fail(a + " >= 1 or " + b + " <= 2");
-        }else{
-            Assert.assertTrue(a < 1 && b > 2);
+    @Test(dataProvider = "correct")
+    public void dataProviderPairTrue(int a, int b) {
+        if (!(Math.abs(a) == Math.abs(b))) {
+            Assert.fail("Absolute value of '" + a + "' not equals absolute value of '" + b + "' \n");
+        } else {
+            Assert.assertTrue(Math.abs(a) == Math.abs(b));
         }
     }
 
-    @Test(dataProvider = "name")
-    public void dataProviderPairFalseOrFail(int a, int b){
-        if(!(a < 1 && b > 2)){
-            Assert.assertFalse(a < 1 && b > 2);
-        }else{
-            Assert.fail(a + " < 1 or " + b + " > 2");
+    @Test(dataProvider = "incorrect")
+    public void dataProviderPairTrueSkip(int a, int b) {
+        if (!(Math.abs(a) == Math.abs(b))) {
+            throw new SkipException("");
+        } else {
+            Assert.assertTrue(Math.abs(a) == Math.abs(b));
         }
     }
 
+    @Test(dataProvider = "correct")
+    public void dataProviderPairFail(int a, int b) {
+        if (!(Math.abs(a) == Math.abs(b))) {
+            Assert.assertFalse(Math.abs(a) == Math.abs(b));
+        } else {
+            Assert.fail("Absolute value of '" + a + "' equals absolute value of '" + b + "' \n");
+        }
+    }
+
+    @Test(dataProvider = "incorrect")
+    public void dataProviderPairFalse(int a, int b) {
+        if (!(Math.abs(a) == Math.abs(b))) {
+            Assert.assertFalse(Math.abs(a) == Math.abs(b));
+        } else {
+            Assert.fail("Absolute value of '" + a + "' equals absolute value of '" + b + "' \n");
+        }
+    }
 }

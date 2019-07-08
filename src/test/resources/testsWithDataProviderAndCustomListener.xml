@@ -7,7 +7,7 @@
         <listener class-name="listeners.CustomListenerForSuite"/>
     </listeners>
 
-    <test name="TestWithListenersAnsDataProvider">
+    <test name="TestsWithDataProviderAndCustomListener">
 
         <classes>
             <class name="TestsWithDataProviderAndCustomListener"/>
