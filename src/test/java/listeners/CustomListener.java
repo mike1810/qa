@@ -4,24 +4,29 @@ import org.testng.*;
 
 public class CustomListener implements ITestListener{
 
+    int a = 1;
     public void onTestStart(ITestResult var1){
-        System.out.println("Test '" + var1.getTestName() + "' started");
+        System.out.println("Test "+ a +")'" + var1.getName() + "' started");
+        var1.getTestClass();
     }
 
     public void onTestSuccess(ITestResult var1){
-        System.out.println("Test '" + var1.getTestName() + "' successful");
+        System.out.println("Test "+ a +")'" + var1.getName() + "' successful");
+        a++;
     }
 
     public void onTestFailure(ITestResult var1){
-        System.out.println("Test '" + var1.getTestName() + "' failed");
+        System.out.println("Test "+ a +")'" + var1.getName() + "' failed");
+        a++;
     }
 
     public void onTestSkipped(ITestResult var1){
-        System.out.println("Test '" + var1.getTestName() + "' skipped");
+        System.out.println("Test "+ a +")'" + var1.getName() + "' skipped");
+        a++;
     }
 
     public void onTestFailedButWithinSuccessPercentage(ITestResult var1){
-
+        System.out.println("onTestFailedButWithinSuccessPercentage");
     }
 
     public void onStart(ITestContext var1){
@@ -32,17 +37,3 @@ public class CustomListener implements ITestListener{
         System.out.println("Test '" + var1.getName() + "' finished");
     }
 }
-
-
-
-
-/*
-public class CustomListener implements ISuiteListener{
-    public void onStart(ISuite iSuite){
-        System.out.println( "On Start actions\n" );
-    }
-
-    public void onFinish(ISuite iSuite){
-        System.out.println( "On Finish actions\n" );
-    }
-}*/

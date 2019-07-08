@@ -2,18 +2,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="test-suite-name">
 
-    <test name="Test Groups">
+    <test name="Before and after">
+
 
         <groups>
             <run>
-                <include name="assert"/>
-                <include name="softAssert"/>
+                <include name="firstGroup"/>
+                <include name="secondGroup"/>
             </run>
         </groups>
 
         <classes>
-            <class name="TestsWithGroupsAndSoftAssert"/>
+            <class name="fullSetOfBeforeAndAfterActions"/>
         </classes>
+
 
     </test>
 

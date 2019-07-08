@@ -3,7 +3,7 @@ import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 
-public class TestsWithGroups {
+public class TestsWithGroupsAndSoftAssert {
 
     @Test( groups = "assert" )
     public void withAssert(){
@@ -15,8 +15,8 @@ public class TestsWithGroups {
     @Test( groups = "softAssert" )
     public void withSoftAssert(){
         SoftAssert softAssert = new SoftAssert();
-        int first = 1;
-        int second = 1;
+        int first = 2;
+        int second = 2;
         softAssert.assertEquals(first,second,"First pair is not equals");
 
         first = 2;

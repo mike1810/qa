@@ -4,11 +4,11 @@
 
     <test name="Parametrized test">
 
-        <parameter name="firstNumber" value="2"/>
-        <parameter name="secondNumber" value="2"/>
+        <parameter name="firstNumber" value="string"/>
+        <parameter name="secondNumber" value="strong"/>
 
         <classes>
-            <class name="TestsWithData">
+            <class name="TestsWithParameters">
                 <methods>
                     <include name="testWithData"/>
                 </methods>
