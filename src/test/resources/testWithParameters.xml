@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="test-suite-name">
+
+    <test name="Parametrized test with before and after">
+
+        <parameter name="firstNumber" value="string"/>
+        <parameter name="secondNumber" value="strong"/>
+        <parameter name="thirdNumber" value="strings"/>
+
+        <classes>
+            <class name="TestsWithParameters"/>
+        </classes>
+
+    </test>
+
+</suite>
