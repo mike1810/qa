@@ -36,14 +36,24 @@ public class FullSetOfBeforeAndAfterActions {
         System.out.println("After test actions.");
     }
 
-    @BeforeGroups
-    public void beforeGroups() {
-        System.out.println("Before groups actions.");
+    @BeforeGroups("firstGroup")
+    public void beforeFirstGroup() {
+        System.out.println("Before first group actions.");
     }
 
-    @AfterGroups
-    public void afterGroups() {
-        System.out.println("After groups actions.");
+    @AfterGroups("firstGroup")
+    public void afterFirstGroup() {
+        System.out.println("After first group actions.");
+    }
+
+    @BeforeGroups("secondGroup")
+    public void beforeSecondGroup() {
+        System.out.println("Before second group actions.");
+    }
+
+    @AfterGroups("secondGroup")
+    public void afterSecondGroup() {
+        System.out.println("After second group actions.");
     }
 
     @BeforeClass
